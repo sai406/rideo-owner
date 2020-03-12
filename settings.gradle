@@ -1,0 +1,2 @@
+rootProject.name='RideioOwner'
+include ':app'
