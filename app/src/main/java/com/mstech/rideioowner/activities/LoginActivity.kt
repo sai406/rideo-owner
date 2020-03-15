@@ -16,17 +16,15 @@ import org.json.JSONArray
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper
 import java.lang.Exception
 
-class LoginActivity : AppCompatActivity() {
-    override fun attachBaseContext(newBase: Context?) {
-        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase))
-    }
+class LoginActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        supportActionBar?.title= ("Owner Login")
+        getBackButton().visibility= View.GONE
+        getHomeButton().visibility= View.GONE
+        setScreenTitle("Owner Login")
         login_btn.setOnClickListener(View.OnClickListener {  v ->
             if (!NetworkUtils.isConnected()){
                ToastUtils.showShort("No Internet Connection")
@@ -60,7 +58,8 @@ class LoginActivity : AppCompatActivity() {
                             SPStaticUtils.put(SharedKey.FIRSTNAME,data?.get(0)?.FirstName)
                             SPStaticUtils.put(SharedKey.LASTNAME,data?.get(0)?.LastName)
                             SPStaticUtils.put(SharedKey.MOBILE,data?.get(0)?.Mobile)
-                            SPStaticUtils.put(SharedKey.OWNER_ID,data?.get(0)?.OwnerId)
+//                            SPStaticUtils.put(SharedKey.OWNER_ID,data?.get(0)?.OwnerId)
+                            SPStaticUtils.put(SharedKey.OWNER_ID,"85")
                             LogUtils.e(data?.get(0).toString())
                             ActivityUtils.startActivity(HomeActivity::class.java)
                             finish()

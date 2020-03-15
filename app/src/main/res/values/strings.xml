@@ -1,4 +1,10 @@
 <resources>
     <string name="app_name">Rideio Owner</string>
     <string name="wheel">wheel</string>
+    <string name="title_activity_live_track">Map</string>
+    <string name="starting">Starting..</string>
+    <string name="disconnected">Disconnected</string>
+    <string name="connected">Connected</string>
+    <string name="reconnecting">Reconnecting..</string>
+    <string name="reconnected">Reconnected.  Connection ID: %d</string>
 </resources>
