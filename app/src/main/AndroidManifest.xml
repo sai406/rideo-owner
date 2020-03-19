@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.SingleVehicleTrack"></activity>
+        <activity android:name=".activities.VehiclesList"></activity>
+        <activity android:name=".activities.SingleVehicleTrack" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -36,17 +37,26 @@
             android:name=".activities.HomeActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".activities.ProfileActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.AlertsActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".activities.LoginActivity"
             android:screenOrientation="portrait" />
-        <activity android:name=".activities.TripAlertsActivity"
-            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activities.TripAlertsActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.PlayBackActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities.ShowAlertsMapActivity"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".activities.TripsActivity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.ShowAlertsMapActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activities.TripsActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.SplashActivity"
             android:screenOrientation="portrait">

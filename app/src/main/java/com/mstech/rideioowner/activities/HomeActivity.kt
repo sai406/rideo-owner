@@ -73,9 +73,9 @@ class HomeActivity : BaseActivity(), View.OnClickListener{
     override fun onClick(v: View?) {
       when ( v?.id){
           R.id.profile ->{
-              ToastUtils.showShort("Navigation")
+              startActivity(Intent(this,ProfileActivity::class.java))
           }R.id.alerts ->{
-              ToastUtils.showShort("Alerts")
+          startActivity(Intent(this,AlertsActivity::class.java))
           }R.id.command ->{
               ToastUtils.showShort("Command")
           }R.id.geofence ->{
@@ -87,7 +87,7 @@ class HomeActivity : BaseActivity(), View.OnClickListener{
           }R.id.driver ->{
               ToastUtils.showShort("History")
           }R.id.vehicle ->{
-              ToastUtils.showShort("Vehicle")
+          startActivity(Intent(this,VehiclesList::class.java))
           }
       }
     }

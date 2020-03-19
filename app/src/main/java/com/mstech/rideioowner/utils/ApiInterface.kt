@@ -1,6 +1,7 @@
 package com.mstech.rideioowner.utils
 
 import com.mstech.rideiodriver.Model.PlaybackAlerts
+import com.mstech.rideioowner.model.AlertsResponse
 import com.mstech.rideioowner.model.LoginResponse
 import com.mstech.rideioowner.model.VehicleListResponse
 import okhttp3.RequestBody
@@ -22,6 +23,9 @@ interface ApiInterface {
     fun getTripHistory(@Body postdata : RequestBody):Call<PlaybackAlerts>
     @GET("api/track/GetOwnerVehicles")
     fun getOwnerVehiclelist(@Query("OwnerId") ownerId: String?): Call<List<VehicleListResponse?>>?
+    @Headers("Content-Type: application/json")
+    @POST("api/track/GetAlertsData")
+    fun getAlertsData(@Body postdata : RequestBody):Call<MutableList<AlertsResponse>>
 
 
 }
