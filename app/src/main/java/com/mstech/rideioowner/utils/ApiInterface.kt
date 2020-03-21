@@ -2,6 +2,7 @@ package com.mstech.rideioowner.utils
 
 import com.mstech.rideiodriver.Model.PlaybackAlerts
 import com.mstech.rideioowner.model.AlertsResponse
+import com.mstech.rideioowner.model.DriverListResponse
 import com.mstech.rideioowner.model.LoginResponse
 import com.mstech.rideioowner.model.VehicleListResponse
 import okhttp3.RequestBody
@@ -16,16 +17,21 @@ interface ApiInterface {
     fun loginMethod(@Query("mobile") mobile: String, @Query("pin") pin: String, @Query("mid") mid: String): Call<List<LoginResponse>>
 
     @GET("api/track/GetLiveTrack")
-    fun allLiveVehicles(@Query("ownerid") ownerid: String, @Query("imei") imei: String) : Call<ResponseBody>
+    fun allLiveVehicles(@Query("ownerid") ownerid: String, @Query("imei") imei: String): Call<ResponseBody>
 
     @Headers("Content-Type: application/json")
     @POST("api/track/GetTripHistory")
-    fun getTripHistory(@Body postdata : RequestBody):Call<PlaybackAlerts>
+    fun getTripHistory(@Body postdata: RequestBody): Call<PlaybackAlerts>
+
     @GET("api/track/GetOwnerVehicles")
     fun getOwnerVehiclelist(@Query("OwnerId") ownerId: String?): Call<List<VehicleListResponse?>>?
+
+    @GET("services/trackservices.asmx/GetDriverListByOwner")
+    fun getDriverList(@Query("OwnerId") ownerId: String?): Call<List<DriverListResponse?>>?
+
     @Headers("Content-Type: application/json")
     @POST("api/track/GetAlertsData")
-    fun getAlertsData(@Body postdata : RequestBody):Call<MutableList<AlertsResponse>>
+    fun getAlertsData(@Body postdata: RequestBody): Call<MutableList<AlertsResponse>>
 
 
 }

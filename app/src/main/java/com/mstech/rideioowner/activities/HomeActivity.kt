@@ -85,7 +85,7 @@ class HomeActivity : BaseActivity(), View.OnClickListener{
           }R.id.trips ->{
           startActivity(Intent(this,TripsActivity::class.java))
           }R.id.driver ->{
-              ToastUtils.showShort("History")
+          startActivity(Intent(this,DriverListActivity::class.java))
           }R.id.vehicle ->{
           startActivity(Intent(this,VehiclesList::class.java))
           }

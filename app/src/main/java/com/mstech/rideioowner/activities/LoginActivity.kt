@@ -51,6 +51,7 @@ class LoginActivity : BaseActivity() {
                     if(data?.get(0)?.OwnerId.equals(null)){
                         ToastUtils.showShort("Invalid Login")
                     }else{
+                        LogUtils.e(data?.get(0))
                         try{
                             SPStaticUtils.put(SharedKey.ISLOGIN,"true")
                             SPStaticUtils.put(SharedKey.ADDRESS,data?.get(0)?.Address)
@@ -58,8 +59,8 @@ class LoginActivity : BaseActivity() {
                             SPStaticUtils.put(SharedKey.FIRSTNAME,data?.get(0)?.FirstName)
                             SPStaticUtils.put(SharedKey.LASTNAME,data?.get(0)?.LastName)
                             SPStaticUtils.put(SharedKey.MOBILE,data?.get(0)?.Mobile)
-//                            SPStaticUtils.put(SharedKey.OWNER_ID,data?.get(0)?.OwnerId)
-                            SPStaticUtils.put(SharedKey.OWNER_ID,"85")
+                            SPStaticUtils.put(SharedKey.OWNER_ID,data?.get(0)?.OwnerId)
+//                            SPStaticUtils.put(SharedKey.OWNER_ID,"85")
                             LogUtils.e(data?.get(0).toString())
                             ActivityUtils.startActivity(HomeActivity::class.java)
                             finish()
