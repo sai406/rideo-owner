@@ -33,5 +33,9 @@ interface ApiInterface {
     @POST("api/track/GetAlertsData")
     fun getAlertsData(@Body postdata: RequestBody): Call<MutableList<AlertsResponse>>
 
+    @Headers("Content-Type: application/json")
+    @POST("api/track/SetGeoFence")
+    fun setGeofence(@Body postdata: RequestBody): Call<ResponseBody>
+
 
 }

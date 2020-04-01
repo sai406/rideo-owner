@@ -16,7 +16,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.DriverListActivity"></activity>
+        <activity android:name=".activities.GeofenceListActivity"></activity>
+        <activity android:name=".activities.GeofenceActivity" />
+        <activity android:name=".activities.DriverListActivity" />
         <activity android:name=".activities.VehiclesList" />
         <activity android:name=".activities.SingleVehicleTrack" />
         <!--

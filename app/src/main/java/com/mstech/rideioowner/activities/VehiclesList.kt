@@ -1,11 +1,9 @@
 package com.mstech.rideioowner.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.blankj.utilcode.util.NetworkUtils
 import com.blankj.utilcode.util.SPStaticUtils
@@ -20,11 +18,13 @@ import kotlinx.android.synthetic.main.activity_vehicles_list.*
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import java.lang.Exception
 import java.util.ArrayList
 
 class VehiclesList : BaseActivity() {
     var devicelist: List<VehicleListResponse> =
         ArrayList<VehicleListResponse>()
+    var type = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +42,11 @@ class VehiclesList : BaseActivity() {
            getOwnerVehiclesList()
         }else{
             ToastUtils.showShort("No Internet Connection")
+        }
+        try {
+            type = intent.getBooleanExtra("type",false)
+        }catch (e:Exception){
+            e.printStackTrace()
         }
     }
 
@@ -62,7 +67,7 @@ class VehiclesList : BaseActivity() {
                         devicelist = response.body() as List<VehicleListResponse>
                         var adapter: VehicleListAdapter? =
                             devicelist?.let { VehicleListAdapter(this@VehiclesList,
-                                it as MutableList<VehicleListResponse>
+                                it as MutableList<VehicleListResponse>,type
                             ) }
                         recyclerView?.adapter = adapter
                         adapter?.notifyDataSetChanged()

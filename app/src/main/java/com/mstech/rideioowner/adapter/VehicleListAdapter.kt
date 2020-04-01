@@ -9,16 +9,15 @@ import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.mstech.rideioowner.R
+import com.mstech.rideioowner.activities.GeofenceActivity
 import com.mstech.rideioowner.activities.ShowAlertsMapActivity
-import com.mstech.rideioowner.model.AlertsResponse
 import com.mstech.rideioowner.model.VehicleListResponse
 
 class VehicleListAdapter(
-    var context: Context,
-    samplelist: MutableList<VehicleListResponse>
-) :
-    RecyclerView.Adapter<VehicleListAdapter.MyViewHolder>() {
+    var context: Context, samplelist: MutableList<VehicleListResponse>, b: Boolean
+) : RecyclerView.Adapter<VehicleListAdapter.MyViewHolder>() {
     private val samplelist: MutableList<VehicleListResponse>
+    private val b: Boolean
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -34,16 +33,23 @@ class VehicleListAdapter(
         position: Int
     ) {
         val m: VehicleListResponse = samplelist[position] as VehicleListResponse
-        holder.vehicle_number.text=m.vehicleNumber
+        holder.vehicle_number.text = m.vehicleNumber
         holder.event_type.text = m.deviceName
         holder.time.text = m.imei
         holder.address.text = m.address
         holder.navigation.setOnClickListener(View.OnClickListener { v ->
-            val i = Intent(context, ShowAlertsMapActivity::class.java)
-            i.putExtra("lat",m.latitude)
-            i.putExtra("lon",m.longitude)
-            context.startActivity(i)
-        })
+            if (b == true) {
+                context.startActivity(Intent(context, GeofenceActivity::class.java).putExtra("imei",m.imei))
+            } else {
+                val i = Intent(context, ShowAlertsMapActivity::class.java)
+                i.putExtra("lat", m.latitude)
+                i.putExtra("lon", m.longitude)
+                context.startActivity(i)
+            }
+
+        }
+        )
+
     }
 
     override fun getItemCount(): Int {
@@ -57,6 +63,7 @@ class VehicleListAdapter(
         var time: TextView
         var address: TextView
         var navigation: RelativeLayout
+
         //
         init {
             // get the reference of item view's
@@ -70,5 +77,6 @@ class VehicleListAdapter(
 
     init {
         this.samplelist = samplelist
+        this.b = b
     }
 }

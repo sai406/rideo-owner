@@ -79,7 +79,7 @@ class HomeActivity : BaseActivity(), View.OnClickListener{
           }R.id.command ->{
               ToastUtils.showShort("Command")
           }R.id.geofence ->{
-              ToastUtils.showShort("GeoFence")
+          startActivity(Intent(this,VehiclesList::class.java).putExtra("type" , true))
           }R.id.tracking ->{
              startActivity(Intent(this,LiveTrackActivity::class.java))
           }R.id.trips ->{
@@ -87,7 +87,7 @@ class HomeActivity : BaseActivity(), View.OnClickListener{
           }R.id.driver ->{
           startActivity(Intent(this,DriverListActivity::class.java))
           }R.id.vehicle ->{
-          startActivity(Intent(this,VehiclesList::class.java))
+          startActivity(Intent(this,VehiclesList::class.java).putExtra("type",false))
           }
       }
     }
