@@ -1,10 +1,7 @@
 package com.mstech.rideioowner.utils
 
 import com.mstech.rideiodriver.Model.PlaybackAlerts
-import com.mstech.rideioowner.model.AlertsResponse
-import com.mstech.rideioowner.model.DriverListResponse
-import com.mstech.rideioowner.model.LoginResponse
-import com.mstech.rideioowner.model.VehicleListResponse
+import com.mstech.rideioowner.model.*
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import org.json.JSONArray
@@ -36,6 +33,14 @@ interface ApiInterface {
     @Headers("Content-Type: application/json")
     @POST("api/track/SetGeoFence")
     fun setGeofence(@Body postdata: RequestBody): Call<ResponseBody>
+
+    @Headers("Content-Type: application/json")
+    @POST("api/track/getgeofences")
+    fun getgeofenceList(@Body postdata: RequestBody): Call<List<GeofenceListResponse>>
+
+@Headers("Content-Type: application/json")
+    @POST("api/track/deletegeofence")
+    fun delete_geofence(@Body postdata: RequestBody): Call<ResponseBody>
 
 
 }

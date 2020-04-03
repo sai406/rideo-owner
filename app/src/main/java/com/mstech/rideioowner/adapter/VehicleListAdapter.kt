@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.mstech.rideioowner.R
 import com.mstech.rideioowner.activities.GeofenceActivity
+import com.mstech.rideioowner.activities.GeofenceListActivity
 import com.mstech.rideioowner.activities.ShowAlertsMapActivity
 import com.mstech.rideioowner.model.VehicleListResponse
 
@@ -39,7 +40,7 @@ class VehicleListAdapter(
         holder.address.text = m.address
         holder.navigation.setOnClickListener(View.OnClickListener { v ->
             if (b == true) {
-                context.startActivity(Intent(context, GeofenceActivity::class.java).putExtra("imei",m.imei))
+                context.startActivity(Intent(context, GeofenceListActivity::class.java).putExtra("imei",m.imei))
             } else {
                 val i = Intent(context, ShowAlertsMapActivity::class.java)
                 i.putExtra("lat", m.latitude)

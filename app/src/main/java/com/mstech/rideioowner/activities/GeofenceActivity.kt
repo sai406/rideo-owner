@@ -76,7 +76,7 @@ class GeofenceActivity : BaseActivity(), OnMapReadyCallback {
                 index = progressChangedValue
                 radiustxt.text = index.toDouble().toString() + "m"
                 googleMap!!.clear()
-                val cameraUpdate = CameraUpdateFactory.newLatLngZoom(midlatlng, 14f)
+                val cameraUpdate = CameraUpdateFactory.newLatLngZoom(midlatlng, 12f)
                 googleMap!!.moveCamera(cameraUpdate)
                 val circleOptions1 = CircleOptions()
                     .center(midlatlng)
@@ -98,6 +98,8 @@ class GeofenceActivity : BaseActivity(), OnMapReadyCallback {
             obj.put("Radius", index)
             obj.put("CenterLatitude", midlatlng.latitude)
             obj.put("CenterLongitude", midlatlng.longitude)
+            obj.put("GeoFenceName",geoname.text)
+            obj.put("EnterExitALert","IN")
             LogUtils.e(obj.toString())
             var body = RequestBody.create(
                 okhttp3.MediaType.parse("application/json; charset=utf-8"),
@@ -118,7 +120,7 @@ class GeofenceActivity : BaseActivity(), OnMapReadyCallback {
                             try {
                                 LogUtils.e(response.body()?.string())
                                 if (response.body()!!.string()!!.toString() != null) {
-                                    ToastUtils.showShort("Geofence Added Successfull")
+                                    ToastUtils.showShort("Geofence Added Successfully")
                                     onBackPressed()
                                 }else{
                                     ToastUtils.showShort("Please try again")
