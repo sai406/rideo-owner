@@ -1,7 +1,5 @@
 package com.mstech.rideioowner.activities
 
-import android.content.Context
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.blankj.utilcode.util.*
@@ -11,8 +9,6 @@ import com.mstech.rideioowner.model.SharedKey
 import com.mstech.rideioowner.utils.MyUtils
 import com.mstech.rideioowner.utils.RetrofitFactory
 import kotlinx.android.synthetic.main.activity_login.*
-import okhttp3.ResponseBody
-import org.json.JSONArray
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

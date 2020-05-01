@@ -1,5 +1,5 @@
 package com.mstech.rideioowner.activities
-
+import com.mstech.rideioowner.R
 import android.app.ProgressDialog
 import android.content.Context
 import android.os.Bundle
@@ -8,7 +8,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-import com.mstech.rideioowner.R
+
 
 abstract class BaseActivity : AppCompatActivity() {
     lateinit var progressDialog: ProgressDialog
